@@ -13,14 +13,27 @@ const getHtml = async () => {
     // 3
     const bodyList = $("div.bbs_WriteA");
     bodyList.map((i, element) => {
-      ulList[i] = {
-        date: i + 1,
-        // 4
-        kcal: $(list).find("p.fm_tit_p.mgt15").text(),
-        menu: $(list).find("p:nth-child(3)").text(),
+      ulList[0] = {
+        월요일: $(element).find("td:nth-child(3)").text().replaceAll('\t', "").replaceAll('\n',"").replaceAll("상세보기", "\n\n열량정보:\n").replaceAll("Kcal", "Kcal\n\n메뉴:\n").replaceAll("-", "\n"),
+      };
+      ulList[1] ={
+        화요일: $(element).find("td:nth-child(4)").text().replaceAll('\t', "").replaceAll('\n',"").replaceAll("상세보기", "\n\n열량정보:\n").replaceAll("Kcal", "Kcal\n\n메뉴:\n").replaceAll("-", "\n"),
+      };
+      ulList[2] ={
+        수요일: $(element).find("td:nth-child(5)").text().replaceAll('\t', "").replaceAll('\n',"").replaceAll("상세보기", "\n\n열량정보:\n").replaceAll("Kcal", "Kcal\n\n메뉴:\n").replaceAll("-", "\n"),
+      };
+      ulList[3] ={
+        목요일: $(element).find("td:nth-child(6)").text().replaceAll('\t', "").replaceAll('\n',"").replaceAll("상세보기", "\n\n열량정보:\n").replaceAll("Kcal", "Kcal\n\n메뉴:\n").replaceAll("-", "\n"),
+      };
+      ulList[4] ={
+        금요일: $(element).find("td:nth-child(7)").text().replaceAll('\t', "").replaceAll('\n',"").replaceAll("상세보기", "\n\n열량정보:\n").replaceAll("Kcal", "Kcal\n\n메뉴:\n").replaceAll("-", "\n"),
       };
     });
-    console.log(ulList);
+    console.log(ulList[0]);
+    console.log(ulList[1]);
+    console.log(ulList[2]);
+    console.log(ulList[3]);
+    console.log(ulList[4]);
   } catch (error) {
     console.error(error);
   }
